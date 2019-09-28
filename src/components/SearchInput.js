@@ -12,20 +12,17 @@ export default class SearchInput extends React.Component {
   constructor(props) {
     super(props)
     this.state = {isActive: false}
-    this.activateSearch = this.activateSearch.bind(this)
-    this.deactivateSearch = this.deactivateSearch.bind(this)
-    this.clearAndDeactivate = this.clearAndDeactivate.bind(this)
   }
 
-  activateSearch() {
+  activateSearch = () => {
     this.setState({isActive: true})
   }
 
-  deactivateSearch() {
+  deactivateSearch = () => {
     this.setState({isActive: false})
   }
 
-  clearAndDeactivate() {
+  clearAndDeactivate = () => {
     this.deactivateSearch()
     this.props.onClear()
   }

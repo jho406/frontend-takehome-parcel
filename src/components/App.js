@@ -15,12 +15,6 @@ export default class App extends React.Component {
       searchResults: [],
       savedGems: {},
     }
-
-    this.saveGem = this.saveGem.bind(this)
-    this.removeGem = this.removeGem.bind(this)
-    this.toggleSaveGem = this.toggleSaveGem.bind(this)
-    this.clearSearchResults = this.clearSearchResults.bind(this)
-    this.handleSearch = this.handleSearch.bind(this)
   }
 
   componentDidMount() {
@@ -28,7 +22,7 @@ export default class App extends React.Component {
     this.setState({savedGems})
   }
 
-  handleSearch(search_str) {
+  handleSearch = (search_str) => {
     return fetchGems(search_str)
     .then((searchResults) => {
       this.setState({searchResults})
@@ -36,7 +30,7 @@ export default class App extends React.Component {
     })
   }
 
-  toggleSaveGem(payload) {
+  toggleSaveGem = (payload) => {
     const {savedGems} = this.state
     if ({}.hasOwnProperty.call(savedGems, payload.id)) {
       this.removeGem(payload.id)
@@ -45,7 +39,7 @@ export default class App extends React.Component {
     }
   }
 
-  saveGem(payload) {
+  saveGem = (payload) => {
     const {savedGems} = this.state
     savedGems[payload.id] = {...payload, createdAt: Date.now()}
     window.localStorage.setItem('savedGems', JSON.stringify(savedGems))
@@ -53,7 +47,7 @@ export default class App extends React.Component {
     this.setState({savedGems})
   }
 
-  removeGem(key) {
+  removeGem = (key) => {
     const {savedGems} = this.state
     delete savedGems[key]
     window.localStorage.removeItem('savedGems', JSON.stringify(savedGems))
@@ -61,7 +55,7 @@ export default class App extends React.Component {
     this.setState({savedGems})
   }
 
-  clearSearchResults() {
+  clearSearchResults = () => {
     this.setState({searchResults: []})
   }
 

@@ -16,13 +16,11 @@ export default class SearchModal extends React.Component {
     super(props)
     this.inputRef = React.createRef()
     this.modalRef = React.createRef()
-    this.handleOutsideClick = this.handleOutsideClick.bind(this)
     this.onSearch = _.debounce(
       this.props.onSearch,
       250,
       { maxWait: 1000, trailing: true }
     )
-    this.handleSearch = this.handleSearch.bind(this)
     this.state = {currentSearchStr: ''}
   }
 
@@ -35,7 +33,7 @@ export default class SearchModal extends React.Component {
     document.removeEventListener('mousedown', this.handleOutsideClick, false)
   }
 
-  handleOutsideClick(e) {
+  handleOutsideClick = (e) => {
     const clickedOutsideModal = !this.modalRef.current.contains(e.target)
 
     if(clickedOutsideModal) {
@@ -43,7 +41,7 @@ export default class SearchModal extends React.Component {
     }
   }
 
-  handleSearch(e) {
+  handleSearch = (e) => {
     const currentSearchStr = e.target.value
     this.setState({currentSearchStr})
 
