@@ -2,7 +2,7 @@ import React from 'react'
 import _ from 'lodash'
 import Truncate from 'react-truncate'
 
-const MIN_SEARCH_LENGTH = 3
+const MIN_SEARCH_LENGTH = 2
 
 export default class SearchModal extends React.Component {
   static defaultProps = {
@@ -47,7 +47,7 @@ export default class SearchModal extends React.Component {
     const currentSearchStr = e.target.value
     this.setState({currentSearchStr})
 
-    if(currentSearchStr.length >= 2) {
+    if(currentSearchStr.length >= MIN_SEARCH_LENGTH) {
       this.props.onSearch(currentSearchStr)
     }
   }

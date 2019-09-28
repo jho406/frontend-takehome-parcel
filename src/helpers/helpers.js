@@ -5,7 +5,7 @@ import 'whatwg-fetch'
 export const combineResultsWithSavedGems = (searchResults, savedGems) => {
   return searchResults.map((result) => {
     const id = result.id
-    if (savedGems.hasOwnProperty(id)) {
+    if ({}.hasOwnProperty.call(savedGems, id)) {
       return {...result, isSaved: true}
     } else {
       return {...result, isSaved: false}

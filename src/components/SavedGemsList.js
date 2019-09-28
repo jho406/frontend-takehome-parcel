@@ -13,7 +13,7 @@ export default class SavedGemsList extends React.Component {
       return (
         <div className='saved-gems__item' key={gem.id}>
           {gem.name}
-          <a className='saved-gems__item__remove-link' onClick={() => {this.props.onRemoveClick(gem.id)}} href='#'>remove</a>
+          <a className='saved-gems__item__remove-link' onClick={() => {onRemoveClick(gem.id)}} href='#'>remove</a>
           <div className='saved-gems__item__description'>{gem.description}</div>
         </div>
       )

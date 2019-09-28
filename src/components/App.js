@@ -1,6 +1,5 @@
 import React from "react"
 import logo from '../images/logo.png'
-import _ from 'lodash'
 import SearchInput from './SearchInput'
 import SavedGemsList from './SavedGemsList'
 import {
@@ -39,7 +38,7 @@ export default class App extends React.Component {
 
   toggleSaveGem(payload) {
     const {savedGems} = this.state
-    if (savedGems.hasOwnProperty(payload.id)) {
+    if ({}.hasOwnProperty.call(savedGems, payload.id)) {
       this.removeGem(payload.id)
     } else {
       this.saveGem(payload)
