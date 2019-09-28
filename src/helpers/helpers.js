@@ -1,3 +1,7 @@
+import 'whatwg-fetch'
+//Used for Cypress to stub XMLHTTPRequest.
+//Won't get used if window.fetch already exist in production
+
 export const combineResultsWithSavedGems = (searchResults, savedGems) => {
   return searchResults.map((result) => {
     const id = result.id

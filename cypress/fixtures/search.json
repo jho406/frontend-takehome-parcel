@@ -1,0 +1,52 @@
+[
+   {
+      "documentation_uri":"http://api.rubyonrails.org",
+      "metadata":{
+
+      },
+      "homepage_uri":"https://rubyonrails.org",
+      "bug_tracker_uri":"http://github.com/rails/rails/issues",
+      "project_uri":"https://rubygems.org/gems/rails",
+      "version":"6.0.0",
+      "sha":"dcb924cb0e7ec85c9773f9711caac1fd7c8f3791eb42d389dd6967d02545fdc2",
+      "platform":"ruby",
+      "changelog_uri":null,
+      "source_code_uri":"http://github.com/rails/rails",
+      "licenses":[
+         "MIT"
+      ],
+      "gem_uri":"https://rubygems.org/gems/rails-6.0.0.gem",
+      "downloads":191878495,
+      "mailing_list_uri":"http://groups.google.com/group/rubyonrails-talk",
+      "name":"rails",
+      "wiki_uri":"",
+      "version_downloads":0,
+      "authors":"David Heinemeier Hansson",
+      "info":"Ruby on Rails is a full-stack web framework optimized for programmer happiness and sustainable productivity. It encourages beautiful code by favoring convention over configuration."
+   },
+   {
+      "documentation_uri":"http://www.rubydoc.info/gems/sprockets-rails/3.2.1",
+      "metadata":{
+
+      },
+      "homepage_uri":"https://github.com/rails/sprockets-rails",
+      "bug_tracker_uri":"",
+      "project_uri":"https://rubygems.org/gems/sprockets-rails",
+      "version":"3.2.1",
+      "sha":"e1963a39cf9ffb0d46cdb1dd5cd36769489a56215865a7c7befd978bea156429",
+      "platform":"ruby",
+      "changelog_uri":null,
+      "source_code_uri":"http://github.com/rails/sprockets-rails",
+      "licenses":[
+         "MIT"
+      ],
+      "gem_uri":"https://rubygems.org/gems/sprockets-rails-3.2.1.gem",
+      "downloads":132996756,
+      "mailing_list_uri":"",
+      "name":"sprockets-rails",
+      "wiki_uri":"",
+      "version_downloads":22869707,
+      "authors":"Joshua Peek",
+      "info":"Sprockets Rails integration"
+   }
+]
