@@ -7,7 +7,7 @@
     "build": "./node_modules/.bin/parcel build ./index.html",
     "dev": "concurrently './node_modules/.bin/parcel ./index.html' 'node ./server'",
     "start": "NODE_ENV=production node ./server",
-    "test": "echo 'Your test command goes here'"
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
@@ -20,8 +20,35 @@
   },
   "homepage": "https://github.com/UseFedora/frontend-takehome-parcel#readme",
   "dependencies": {
+    "boostrap": "^2.0.0",
+    "bootstrap": "^4.3.1",
     "concurrently": "^4.0.1",
     "express": "^4.16.3",
-    "parcel": "^1.9.7"
+    "fetch-mock": "^7.3.9",
+    "images": "^3.0.2",
+    "lodash": "^4.17.15",
+    "normalize": "^0.3.1",
+    "normalize.css": "^8.0.1",
+    "parcel": "^1.9.7",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "jasmine": "^3.5.0",
+    "jasmine-expect": "^4.0.3",
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.6.2",
+    "canvas": "^2.6.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "ignore-styles": "^5.0.1",
+    "jasmine-enzyme": "^7.1.1",
+    "jsdom": "15.1.1",
+    "jsdom-global": "3.0.2",
+    "node-fetch": "^2.6.0",
+    "parcel-bundler": "^1.12.3",
+    "sinon": "^7.5.0"
   }
 }
