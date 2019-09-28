@@ -7,10 +7,17 @@ button:focus {
     outline: none;
 }
 
+:root {
+  --suttle-gray: hsla(0, 0%, 70%, 1);
+  --easy-black: hsla(0, 0%, 7%, 1);
+  --bland-orange: hsla(43, 64%, 91%, 1);
+  --just-white: white;
+}
+
 .container {
-  margin: 0 0 3em;
-  background: #fff;
+  background: var(--just-white);
   box-shadow: 2px 4px 6px 1px rgba(50, 50, 50, 0.14);
+  color: var(--easy-black);
 }
 
 .logo {
@@ -29,7 +36,7 @@ body {
   max-width: 720px;
   padding: 20px 40px;
   margin: 0 auto;
-  background-color:rgba(247, 239, 218, 1);
+  background-color: var(--bland-orange);
 }
 
 .card {
@@ -43,7 +50,7 @@ body {
   padding-bottom: 50px;
 }
 
-.search-modal__form {
+.search, .search-modal__form {
   width: 300px;
   margin-right: auto;
   margin-left: auto;
@@ -61,7 +68,7 @@ body {
 }
 
 .search-modal__result__desc {
-  color: hsla(0, 0%, 70%, 1);
+  color: var(--suttle-gray);
 }
 
 .search-modal {
@@ -69,7 +76,7 @@ body {
   border-radius: 4px;
   padding: 30px;
   position: absolute;
-  background-color: white;
+  background-color: var(--just-white);
   left: -30px;
   top: -30px;
 }
@@ -83,6 +90,6 @@ body {
 }
 
 .saved-gems__item__description {
-  color: hsla(0, 0%, 70%, 1);
+  color: var(--suttle-gray);
   margin-bottom: 16px;
 }
