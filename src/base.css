@@ -1,13 +1,89 @@
-body {
-  background: #eee;
-  font-family: Georgia;
-  margin: 0;
-  padding: 50px;
+@import 'bootstrap/dist/css/bootstrap-reboot.css';
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }
 
-.big-lorem-ipsum {
-  font-size: 50px;
-  font-weight: 300;
+.container {
+  margin: 0 0 3em;
+  background: #fff;
+  box-shadow: 2px 4px 6px 1px rgba(50, 50, 50, 0.14);
+}
+
+.logo {
+  width: 120px;
+  margin-bottom: 24px;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+}
+
+.logo-text {
+  font-size: 20px;
+}
+
+body {
+  max-width: 720px;
+  padding: 20px 40px;
   margin: 0 auto;
-  max-width: 15em;
+  background-color:rgba(247, 239, 218, 1);
+}
+
+.card {
+  border-bottom: 1px solid #ddd;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.card--header {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.search {
+  width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+}
+
+.search__result__title {
+  margin-left : 8px;
+}
+
+.search__result__desc {
+  color: hsla(0, 0%, 70%, 1);
+}
+
+
+.search__input, .search__input--faux {
+  border: 0px;
+  border-bottom: 1px solid #eee;
+  width: 300px;
+}
+
+.search-modal {
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.4);
+  border-radius: 4px;
+  padding: 30px;
+  position: absolute;
+  background-color: white;
+  left: -30px;
+  top: -30px;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.saved-gems__item__remove-link {
+  margin-left: 8px;
+}
+
+.saved-gems__item__description {
+  color: hsla(0, 0%, 70%, 1);
+  margin-bottom: 16px;
 }
