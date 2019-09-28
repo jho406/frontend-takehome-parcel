@@ -7,9 +7,9 @@ export default class SavedGemsList extends React.Component {
   }
 
   render() {
-    const onRemoveClick = this.props.onRemoveClick
-    const hasEmptyItems = this.props.items.length === 0
-    const savedSearchElements = this.props.items.map((gem) => {
+    const {onRemoveClick, items} = this.props
+    const hasEmptyItems = items.length === 0
+    const savedSearchElements = items.map((gem) => {
       return (
         <div className='saved-gems__item' key={gem.id}>
           {gem.name}

@@ -51,10 +51,11 @@ export default class SearchModal extends React.Component {
   }
 
   render() {
+    const {currentSearchStr} = this.state
     const results = this.props.results.slice(0, 11)
     const onResultClick = this.props.onResultClick
-    const hasNoResults = results.length === 0 && this.state.currentSearchStr !== ''
-    const hasNotSearched = results.length === 0 && this.state.currentSearchStr === ''
+    const hasNoResults = results.length === 0 && currentSearchStr !== ''
+    const hasNotSearched = results.length === 0 && currentSearchStr === ''
 
     const resultItems = results.map((gem) => {
       return (

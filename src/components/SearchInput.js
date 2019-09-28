@@ -29,6 +29,11 @@ export default class SearchInput extends React.Component {
 
   render() {
     const {isActive} = this.state
+    const {
+      results,
+      onSearch,
+      onResultClick,
+    } = this.props
 
     return <div className="search">
       <input
@@ -40,9 +45,9 @@ export default class SearchInput extends React.Component {
         readOnly
       />
       {isActive ? <SearchModal
-        results={this.props.results}
-        onSearch={this.props.onSearch}
-        onResultClick={this.props.onResultClick}
+        results={results}
+        onSearch={onSearch}
+        onResultClick={onResultClick}
         onEscape={this.clearAndDeactivate}
       /> : null}
     </div>
