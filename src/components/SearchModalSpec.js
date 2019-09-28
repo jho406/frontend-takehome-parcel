@@ -61,7 +61,7 @@ describe('SearchModal', () => {
     })
 
     it('renders a list of results with checked boxes', () => {
-      const handle = '.search__result__check'
+      const handle = '.search-modal__result__check'
       const fakeResultsWithFirstOneTrue = [
         {id: 'foo', name: 'ruby', description: 'ruby one', isSaved: true},
         {id: 'bar', name: 'spar', description: 'spar one', isSaved: false}

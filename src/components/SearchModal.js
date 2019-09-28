@@ -54,17 +54,18 @@ export default class SearchModal extends React.Component {
     const {currentSearchStr} = this.state
     const results = this.props.results.slice(0, 11)
     const onResultClick = this.props.onResultClick
+
     const hasNoResults = results.length === 0 && currentSearchStr !== ''
     const hasNotSearched = results.length === 0 && currentSearchStr === ''
 
     const resultItems = results.map((gem) => {
       return (
         <div key={gem.id} onClick={() => onResultClick(gem)} className='search__result' href='#'>
-            <input className='search__result__check' type='checkBox' checked={gem.isSaved} readOnly/>
-            <span className='search__result__title'>
+            <input className='search-modal__result__check' type='checkBox' checked={gem.isSaved} readOnly/>
+            <span className='search-modal__result__title'>
               {gem.name}
             </span>
-            <p className='search__result__desc'>
+            <p className='search-modal__result__desc'>
               <Truncate lines={3}>
                 {gem.description}
               </Truncate>
@@ -74,7 +75,7 @@ export default class SearchModal extends React.Component {
     })
 
     return <div className='search-modal' ref={this.modalRef}>
-      <form className="search">
+      <form className="search-modal__form">
         <input
           type="text"
           ref={this.inputRef}

@@ -94,7 +94,7 @@ feature('The search page', () => {
       .wait(1000)
       .get('.search__result').first()
       .click()
-      .get('.search__result__check')
+      .get('.search-modal__result__check')
       .should((el) => {
         expect(el).to.be.checked
       })

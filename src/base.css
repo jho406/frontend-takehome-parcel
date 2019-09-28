@@ -43,26 +43,25 @@ body {
   padding-bottom: 50px;
 }
 
-.search {
+.search-modal__form {
   width: 300px;
   margin-right: auto;
   margin-left: auto;
   position: relative;
 }
 
-.search__result__title {
-  margin-left : 8px;
-}
-
-.search__result__desc {
-  color: hsla(0, 0%, 70%, 1);
-}
-
-
 .search__input, .search__input--faux {
   border: 0px;
   border-bottom: 1px solid #eee;
   width: 300px;
+}
+
+.search-modal__result__title {
+  margin-left : 8px;
+}
+
+.search-modal__result__desc {
+  color: hsla(0, 0%, 70%, 1);
 }
 
 .search-modal {
