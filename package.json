@@ -7,7 +7,8 @@
     "build": "./node_modules/.bin/parcel build ./index.html",
     "dev": "concurrently './node_modules/.bin/parcel ./index.html' 'node ./server'",
     "start": "NODE_ENV=production node ./server",
-    "test": "jasmine"
+    "test": "./node_modules/.bin/jasmine",
+    "e2e": "concurrently './node_modules/.bin/parcel ./index.html' 'node ./server' './node_modules/.bin/cypress open'"
   },
   "repository": {
     "type": "git",
