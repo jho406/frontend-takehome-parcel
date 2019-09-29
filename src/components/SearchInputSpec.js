@@ -1,9 +1,6 @@
 import '../../spec/support/enzyme'
-import 'jsdom-global/register'
 import { mount } from 'enzyme'
 import React from 'React'
-import sinon from 'sinon'
-import jasmineEnzyme from 'jasmine-enzyme'
 import SearchInput from './SearchInput'
 import SearchModal from './SearchModal'
 

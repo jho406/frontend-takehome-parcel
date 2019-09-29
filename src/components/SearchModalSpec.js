@@ -1,13 +1,11 @@
 import '../../spec/support/enzyme'
-import 'jsdom-global/register'
 import { mount } from 'enzyme'
 import React from 'React'
 import sinon from 'sinon'
-import jasmineEnzyme from 'jasmine-enzyme'
 import SearchModal from './SearchModal'
 
 describe('SearchModal', () => {
-  beforeEach(() => {
+  beforeAll(() => {
     window.requestAnimationFrame = function(callback) {
       setTimeout(callback, 0)
     }
