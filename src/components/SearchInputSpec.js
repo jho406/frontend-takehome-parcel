@@ -10,7 +10,7 @@ describe('SearchInput', () => {
       const handle = '.search__input--faux'
       const expectedMsg = 'Search Rubygems'
 
-      let component = mount(<SearchInput/>)
+      const component = mount(<SearchInput/>)
       expect(component.find(handle).props().placeholder).toEqual(expectedMsg)
     })
   })
@@ -18,9 +18,7 @@ describe('SearchInput', () => {
   describe('behavior', () => {
     it('shows the search modal on focus', () => {
       const handle = '.search__input--faux'
-      const expectedMsg = 'Search Rubygems'
-
-      let component = mount(<SearchInput/>)
+      const component = mount(<SearchInput/>)
 
       expect(component.find(SearchModal).exists()).toBe(false)
       component.find(handle).simulate('focus')
@@ -29,9 +27,8 @@ describe('SearchInput', () => {
 
     it('it dismisses the search modal on out of focus', () => {
       const handle = '.search__input--faux'
-      const expectedMsg = 'Search Rubygems'
+      const component = mount(<SearchInput/>)
 
-      let component = mount(<SearchInput/>)
       component.find(handle).simulate('focus')
       expect(component.find('.search-modal').exists()).toBe(true)
 

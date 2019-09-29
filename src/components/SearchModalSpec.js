@@ -73,9 +73,6 @@ describe('SearchModal', () => {
 
   describe('behavior', () => {
     it('fires onSearch when typing 2 or more chars', () => {
-      const handle = '.search-modal'
-      const expectedMsg = 'Start searching...'
-
       const spy = sinon.spy()
       const component = mount(<SearchModal onSearch={spy}/>)
       const input = component.find('input')
@@ -86,9 +83,6 @@ describe('SearchModal', () => {
     })
 
     it('does not fires onSearch when typing less than 2 chars', () => {
-      const handle = '.search-modal'
-      const expectedMsg = 'Start searching...'
-
       const spy = sinon.spy()
       const component = mount(<SearchModal onSearch={spy}/>)
       const input = component.find('input')
@@ -99,17 +93,15 @@ describe('SearchModal', () => {
     })
 
     it('fires onEscape when clicking outside the modal', () => {
-      const handle = '.outside'
       const spy = sinon.spy()
 
-      const component = mount(<SearchModal onEscape={spy}/>)
+      mount(<SearchModal onEscape={spy}/>)
 
       document.dispatchEvent(new Event('mousedown'))
       expect(spy.called).toBe(true)
     })
 
     it('does not fire onEscape when clicking inside the modal', () => {
-      const handle = '.outside'
       const spy = sinon.spy()
 
       const component = mount(<SearchModal onEscape={spy}/>)

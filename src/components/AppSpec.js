@@ -2,8 +2,6 @@ import '../../spec/support/enzyme'
 import 'jsdom-global/register'
 import { shallow, mount } from 'enzyme'
 import React from 'React'
-import sinon from 'sinon'
-import jasmineEnzyme from 'jasmine-enzyme'
 import SavedGemsList from './SavedGemsList'
 import SearchInput from './SearchInput'
 import App from './App'
@@ -27,7 +25,7 @@ describe('App', () => {
 
   afterEach(() => {
     localStorageMock.clear()
-    jasmine.clock().uninstall();
+    jasmine.clock().uninstall()
   })
 
   describe('render', () => {
