@@ -11,11 +11,12 @@ button:focus {
   --suttle-gray: hsla(0, 0%, 70%, 1);
   --easy-black: hsla(0, 0%, 7%, 1);
   --bland-orange: hsla(43, 64%, 91%, 1);
-  --just-white: white;
+  --shadow-black: hsla(0, 0%, 0%, 0.4);
+  --shadow-gray: hsla(0, 0%, 90%, 1);
 }
 
 .container {
-  background: var(--just-white);
+  background: white;
   box-shadow: 2px 4px 6px 1px rgba(50, 50, 50, 0.14);
   color: var(--easy-black);
 }
@@ -40,7 +41,7 @@ body {
 }
 
 .card {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--shadow-gray);
   padding: 16px;
   margin-bottom: 16px;
 }
@@ -59,7 +60,7 @@ body {
 
 .search__input, .search__input--faux {
   border: 0px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--shadow-gray);
   width: 300px;
 }
 
@@ -72,11 +73,11 @@ body {
 }
 
 .search-modal {
-  box-shadow: 0px 10px 20px rgba(0,0,0,0.4);
+  box-shadow: 0px 10px 20px var(--shadow-black);
   border-radius: 4px;
   padding: 30px;
   position: absolute;
-  background-color: var(--just-white);
+  background-color: white;
   left: -30px;
   top: -30px;
 }
