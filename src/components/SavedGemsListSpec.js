@@ -13,11 +13,11 @@ describe('SavedGemsList', () => {
         {id: 'foo', name: 'rails', description: 'rails'}
       ]
 
-      let wrapper = mount(<SavedGemsList/>)
-      expect(wrapper.find(handle)).toHaveText(expectedMsg)
+      let component = mount(<SavedGemsList/>)
+      expect(component.find(handle)).toHaveText(expectedMsg)
 
-      wrapper = mount(<SavedGemsList items={items}/>)
-      expect(wrapper.find(handle)).not.toHaveText(expectedMsg)
+      component = mount(<SavedGemsList items={items}/>)
+      expect(component.find(handle)).not.toHaveText(expectedMsg)
     })
 
     it('renders a list of gems when items are passed', () => {
@@ -27,11 +27,11 @@ describe('SavedGemsList', () => {
         {id: 'bar', name: 'sprok', description: 'sprok'}
       ]
 
-      const wrapper = mount(<SavedGemsList items={items}/>)
+      const component = mount(<SavedGemsList items={items}/>)
 
-      expect(wrapper).toContainMatchingElements(2, handle)
-      expect(wrapper.find(handle).at(0)).toIncludeText('rails')
-      expect(wrapper.find(handle).at(1)).toIncludeText('sprok')
+      expect(component).toContainMatchingElements(2, handle)
+      expect(component.find(handle).at(0)).toIncludeText('rails')
+      expect(component.find(handle).at(1)).toIncludeText('sprok')
     })
   })
 
@@ -43,8 +43,8 @@ describe('SavedGemsList', () => {
         {id: 'foo', name: 'rails', description: 'rails'},
       ]
 
-      let wrapper = mount(<SavedGemsList items={items} onRemoveClick={spy}/>)
-      wrapper.find(handle).simulate('click')
+      let component = mount(<SavedGemsList items={items} onRemoveClick={spy}/>)
+      component.find(handle).simulate('click')
 
       expect(spy.calledWith('foo')).toBe(true)
       expect(spy.callCount).toEqual(1)
