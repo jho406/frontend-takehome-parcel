@@ -82,10 +82,12 @@ describe('SearchModal', () => {
       input.instance().value = 'fo'
       input.simulate('change')
 
+      //lodash's debounce can't be stubbed easily. So we use a delay
+      //to simulate the allowed debounce time.
       return delay(DEBOUNCE_TIME)
-      .then(() => {
-        expect(spy.calledWith('fo')).toBe(true)
-      })
+        .then(() => {
+          expect(spy.calledWith('fo')).toBe(true)
+        })
     })
 
     it('debounces the search with a 250 delay', () => {
@@ -98,13 +100,13 @@ describe('SearchModal', () => {
       input.simulate('change')
 
       return delay(DEBOUNCE_TIME)
-      .then(() => {
-        expect(spy.callCount).toBe(1)
-        input.simulate('change')
-        return delay(DEBOUNCE_TIME)
-      }).then(()=>{
-        expect(spy.callCount).toBe(2)
-      })
+        .then(() => {
+          expect(spy.callCount).toBe(1)
+          input.simulate('change')
+          return delay(DEBOUNCE_TIME)
+        }).then(()=>{
+          expect(spy.callCount).toBe(2)
+        })
     })
 
     it('does not fires onSearch when typing less than 2 chars', () => {
@@ -115,9 +117,9 @@ describe('SearchModal', () => {
       input.simulate('change')
 
       return delay(DEBOUNCE_TIME)
-      .then(() => {
-        expect(spy.called).toBe(false)
-      })
+        .then(() => {
+          expect(spy.called).toBe(false)
+        })
     })
 
     it('fires onEscape when clicking outside the modal', () => {
