@@ -1,6 +1,8 @@
 import 'whatwg-fetch'
-//Used for Cypress to stub XMLHTTPRequest.
-//Won't get used if window.fetch already exist in production
+//On e2e, the above is used for Cypress to stub XMLHTTPRequest.
+//On dev and production, window.fetch is used.
+
+const BASE_URL = 'http://localhost:3000'
 
 export const combineResultsWithSavedGems = (searchResults, savedGems) => {
   return searchResults.map((result) => {
@@ -24,7 +26,7 @@ export const transformRubyGemsResponse = (data) => {
 }
 
 export const fetchGems = (name) => {
-  return fetch(`http://localhost:3000/api/v1/search.json?query=${name}`)
+  return fetch(`${BASE_URL}/api/v1/search.json?query=${name}`)
     .then((response) => {
       return response.json()
     })
