@@ -46,7 +46,7 @@ export default class SearchModal extends React.Component {
     this.setState({currentSearchStr})
 
     if(currentSearchStr.length >= MIN_SEARCH_LENGTH) {
-      this.props.onSearch(currentSearchStr)
+      this.onSearch(currentSearchStr)
     }
   }
 

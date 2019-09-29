@@ -4,6 +4,9 @@ import React from 'React'
 import sinon from 'sinon'
 import SearchModal from './SearchModal'
 
+const delay = t => new Promise(resolve => setTimeout(resolve, t))
+const DEBOUNCE_TIME = 250
+
 describe('SearchModal', () => {
   beforeAll(() => {
     window.requestAnimationFrame = function(callback) {
@@ -79,7 +82,29 @@ describe('SearchModal', () => {
       input.instance().value = 'fo'
       input.simulate('change')
 
-      expect(spy.calledWith('fo')).toBe(true)
+      return delay(DEBOUNCE_TIME)
+      .then(() => {
+        expect(spy.calledWith('fo')).toBe(true)
+      })
+    })
+
+    it('debounces the search with a 250 delay', () => {
+      const spy = sinon.spy()
+      const component = mount(<SearchModal onSearch={spy}/>)
+      const input = component.find('input')
+      input.instance().value = 'foo'
+
+      input.simulate('change')
+      input.simulate('change')
+
+      return delay(DEBOUNCE_TIME)
+      .then(() => {
+        expect(spy.callCount).toBe(1)
+        input.simulate('change')
+        return delay(DEBOUNCE_TIME)
+      }).then(()=>{
+        expect(spy.callCount).toBe(2)
+      })
     })
 
     it('does not fires onSearch when typing less than 2 chars', () => {
@@ -89,7 +114,10 @@ describe('SearchModal', () => {
       input.instance().value = 'f'
       input.simulate('change')
 
-      expect(spy.called).toBe(false)
+      return delay(DEBOUNCE_TIME)
+      .then(() => {
+        expect(spy.called).toBe(false)
+      })
     })
 
     it('fires onEscape when clicking outside the modal', () => {
