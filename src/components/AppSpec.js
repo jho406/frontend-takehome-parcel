@@ -1,6 +1,6 @@
 import '../../spec/support/enzyme'
 import 'jsdom-global/register'
-import { mount } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import React from 'React'
 import sinon from 'sinon'
 import jasmineEnzyme from 'jasmine-enzyme'
@@ -36,6 +36,40 @@ describe('App', () => {
 
       expect(component.find(SearchInput)).toExist()
       expect(component.find(SavedGemsList)).toExist()
+    })
+
+    it('passes a descending list to SavedGemList', () => {
+      const component = shallow(<App />)
+      component.setState({savedGems: [
+        {
+          id: 'foo',
+          name: 'rails',
+          description: 'rails',
+          createdAt: 100,
+        },
+        {
+          id: 'bar',
+          name: 'spark',
+          description: 'spark',
+          createdAt: 200
+        }
+      ]})
+
+      const listProps = component.find(SavedGemsList).props().items
+      expect(listProps).toEqual([
+        {
+          id: 'bar',
+          name: 'spark',
+          description: 'spark',
+          createdAt: 200
+        },
+        {
+          id: 'foo',
+          name: 'rails',
+          description: 'rails',
+          createdAt: 100,
+        }
+      ])
     })
   })
 
