@@ -1,4 +1,6 @@
 # Notes
+This project uses Cypress and Jasmine for tests. TDD was used. To run:
+
 Unit tests
 ```
 npm run test
@@ -8,6 +10,8 @@ End to end tests
 ```
 npm run e2e
 ```
+
+The requirements are simple, so I decided to keep it simple. Only bootstrap-reboot (bootstrap's normalize), and custom BEM css. No redux, just React. The top level component `App.js` keeps and passes application state, along with other behavior functions, down to dumber components.
 
 # Teachable frontend takehome
 
