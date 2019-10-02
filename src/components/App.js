@@ -6,15 +6,29 @@ import {
   combineResultsWithSavedGems,
   fetchGems
 } from '../helpers/helpers'
+import {connect} from 'react-redux'
+import {
+  CLEAR_SEARCH_RESULTS,
+  REMOVE_SAVED_GEM,
+  SAVE_GEM,
+  SEARCH_GEMS
+} from '../actions.js'
 
-export default class App extends React.Component {
+const searchGems = (search_str) => {
+  return function(dispatch) {
+    return fetchGems(search_str)
+    .then((searchResults) => {
+      dispatch({
+        type: SEARCH_GEMS,
+        payload: searchResults
+      })
+    })
+  }
+}
+
+class App extends React.Component {
   constructor(props) {
     super(props)
-
-    this.state = {
-      searchResults: [],
-      savedGems: {},
-    }
   }
 
   componentDidMount() {
@@ -23,15 +37,11 @@ export default class App extends React.Component {
   }
 
   handleSearch = (search_str) => {
-    return fetchGems(search_str)
-    .then((searchResults) => {
-      this.setState({searchResults})
-      return Promise.resolve({searchResults})
-    })
+    this.props.dispatch(searchGems(search_str))
   }
 
   toggleSaveGem = (payload) => {
-    const {savedGems} = this.state
+    const {savedGems} = this.props
     if ({}.hasOwnProperty.call(savedGems, payload.id)) {
       this.removeGem(payload.id)
     } else {
@@ -40,27 +50,27 @@ export default class App extends React.Component {
   }
 
   saveGem = (payload) => {
-    const {savedGems} = this.state
-    savedGems[payload.id] = {...payload, createdAt: Date.now()}
-    window.localStorage.setItem('savedGems', JSON.stringify(savedGems))
-
-    this.setState({savedGems})
+    this.props.dispatch({
+      type: SAVE_GEM,
+      payload
+    })
   }
 
   removeGem = (key) => {
-    const {savedGems} = this.state
-    delete savedGems[key]
-    window.localStorage.removeItem('savedGems', JSON.stringify(savedGems))
-
-    this.setState({savedGems})
+    this.props.dispatch({
+      type: REMOVE_SAVED_GEM,
+      payload: {key}
+    })
   }
 
   clearSearchResults = () => {
-    this.setState({searchResults: []})
+    this.props.dispatch({
+      type: CLEAR_SEARCH_RESULTS
+    })
   }
 
   render() {
-    const {savedGems, searchResults} = this.state
+    const {savedGems, searchResults} = this.props
     const searchResultsWithSelection = combineResultsWithSavedGems(searchResults, savedGems)
     const savedItems = Object.values(savedGems).sort((a, b) => {
       return b.createdAt - a.createdAt
@@ -81,3 +91,9 @@ export default class App extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return state
+}
+
+export default connect(mapStateToProps)(App)

@@ -1,0 +1,4 @@
+export const SEARCH_GEMS = 'SEARCH_GEMS'
+export const CLEAR_SEARCH_RESULTS = 'CLEAR_SEARCH_RESULTS'
+export const REMOVE_SAVED_GEM = 'REMOVE_SAVED_GEM'
+export const SAVE_GEM = 'SAVE_GEM'
